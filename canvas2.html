@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="describtion" content="Övningar med canvas i HTML">
+    <meta name="author" content="Stina TEINF21">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>HTML Canvas - Övningar</title>
+</head>
+<body>
+    
+    <div class="nav-bar">
+        <a class="active" href="startsida.html">Startsida</a>
+        <a class="upgft nr2" href="upgft2.html">Uppgift Nr.2</a>
+        <a class="upgft nr3" href="upgft3.html">Uppgift Nr.3</a>
+        <a class="upgft nr4" href="upgft4.html">Uppgift Nr.4</a>
+        <a class="canvas2" href="canvas2.html">Canvas del 2</a>
+        <a class="del2upgft2" href="del2upgft2.html">Del 2: Uppgift Nr.2</a>
+        <a class="bollupgft3" href="boll.html">Del 2: Uppgift Nr.3</a>
+        <a class="extra" href="extra.html">Extra Uppgift</a>
+    </div>
+
+    <h1>Canvas del 2 - Övningar</h1>
+
+    <h3>Uppgift 1: Rektanglar i en loop</h3>
+
+    <canvas id="loop" width="1000" height="600" style="border: 2px solid darkturquoise"></canvas>
+
+
+    <script>
+        var canvas = document.getElementById("loop");
+        var ctx = canvas.getContext("2d");
+
+        var x = 10;
+        var y = 10;
+        var height = 55;
+        var width = 40;
+
+        for (var i =0; i < 10; i++)
+        {
+            ctx.fillStyle = "darkcyan";
+            ctx.fillRect(x, y, width, height);
+            x += 65;
+        }
+
+    </script>
+
+</body>
+</html>

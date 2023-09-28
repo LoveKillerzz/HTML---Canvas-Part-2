@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="describtion" content="Övningar med canvas i HTML">
+    <meta name="author" content="Stina TEINF21">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>HTML Canvas - Övningar</title>
+</head>
+<body>
+    
+    <div class="nav-bar">
+        <a class="active" href="startsida.html">Startsida</a>
+        <a class="upgft nr2" href="upgft2.html">Uppgift Nr.2</a>
+        <a class="upgft nr3" href="upgft3.html">Uppgift Nr.3</a>
+        <a class="upgft nr4" href="upgft4.html">Uppgift Nr.4</a>
+        <a class="canvas2" href="canvas2.html">Canvas del 2</a>
+        <a class="del2upgft2" href="del2upgft2.html">Del 2: Uppgift Nr.2</a>
+        <a class="bollupgft3" href="boll.html">Del 2: Uppgift Nr.3</a>
+        <a class="extra" href="extra.html">Extra Uppgift</a>
+    </div>
+
+    <h1>Del 2: Uppgift 3 - Studsa bollen</h1>
+
+    <canvas id="studsaBoll" width="950" height="600" style="border:2px solid darkcyan;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("studsaBoll");
+        var ctx = canvas.getContext("2d");
+
+        var boll = 
+        {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radie: 20,
+            color: "darkcyan",
+            hastighetY: 5, 
+        };
+
+        function ritaBoll() 
+        {
+            ctx.beginPath();
+            ctx.arc(boll.x, boll.y, boll.radie, 0, Math.PI * 2);
+            ctx.fillStyle = boll.color;
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function uppdatera() 
+        {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            ritaBoll();
+
+            boll.y += boll.hastighetY;
+
+            if (boll.y + boll.radie > canvas.height || boll.y - boll.radie < 0) {
+                boll.hastighetY = -boll.hastighetY;
+            }
+
+            requestAnimationFrame(uppdatera); 
+        }
+
+        uppdatera(); 
+
+
+
+
+    </script>
+
+</body>
+</html>
